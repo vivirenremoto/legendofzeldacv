@@ -1109,7 +1109,7 @@ function randomZombies(){
 
 
         var start_x = quarter_rand * quarter_zone;
-        var end_x = start_x + quarter_zone;
+        var end_x = (start_x + quarter_zone) - third_diff;
 
         var pos_x =  randomNumber(start_x, end_x);
 
@@ -1222,6 +1222,9 @@ function updateTime(){
     }, 1000);
 }
 
+
+resizeScreen();
+
 if( is_game ){
     $('#control_left, #control_right').css('width','15%');
     $('#stats').show();
@@ -1259,7 +1262,7 @@ if( is_game ){
 
 
 
-resizeScreen();
+
 </script>
 
 </body>
