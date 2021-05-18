@@ -178,6 +178,8 @@ a{cursor:pointer;}
 
 .chainsaw{margin-top:-70px;}
 
+
+
 @media screen and (max-width: 1000px) {
     #player{background-size:60% auto;height:300px;}
     #control_left, #control_right{width:10%;}
@@ -202,6 +204,8 @@ a{cursor:pointer;}
     
     #my_score{font-size:50px;padding:5px 30px 30px 30px;margin-right:-35px;margin-bottom:-30px;background-position:20px 18px;}
 
+
+    .obj{padding-top:100px;}
 }
 </style>
 
@@ -792,7 +796,7 @@ function closeModal(){
 
 
         $('.obj').find('.zombie').stop().animate({
-            width: zombie_width_min,
+            width: 200,
             height: 630
         }, delay_shoot);
     }
@@ -920,17 +924,10 @@ $('.obj').click(function(){
 
 
 
-    //$('#player').css('background-image', "url('static/shoot.png')");
-
-    //setTimeout(function(){
-        //$('#player').css('background-image', "url('static/normal2.png')");
-    //}, 1000);
-
-
     if( !is_game ){
 
         $('.obj').find('.zombie').stop().css('margin-left', 10).css('width',zombie_width_min).css('height',630).animate({
-            width: zombie_width_max,
+            width: 200,
             height: 680
         }, 100);
 
@@ -1125,6 +1122,8 @@ function resizeScreen(){
 
 
 
+        var diff_top = ((screen_height-target_size)/2);
+
 
 
     }else{
@@ -1134,15 +1133,16 @@ function resizeScreen(){
         zombie_width_max = 220;
 
 
+
+        var diff_top = ((screen_height-target_size)/2) - 85;
     
     }
 
-    var diff_top = ((screen_height-target_size)/3)*2;
 
-
-    $('.obj').css('top', diff_top);
+    $('.obj').css('top', diff_top).css('width', zombie_width_min);
 
     $('.zombie').css('width', zombie_width_min);
+    $('.text').css('width', zombie_width_min);
 
 
     // movil portait ?
