@@ -43,19 +43,16 @@
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0ZEQCSGWX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDE3D121VL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-H0ZEQCSGWX');
+  gtag('config', 'G-JDE3D121VL');
 </script>
 
-
 <style>
-
-
 * {
     font-size:25px;
 
@@ -176,7 +173,7 @@ a{cursor:pointer;}
 
 #my_score{font-size:60px;padding:10px 40px 40px 40px;margin-right:-35px;margin-bottom:-35px;background:red;color:white;position:fixed;right:0;bottom:0;border-radius: 40px;background-clip: padding-box;width:100px;background-image:url('static/cursor2.png');background-repeat:no-repeat;background-position:20px 25px;}
 
-.chainsaw{margin-top:-70px;}
+
 
 
 
@@ -249,22 +246,6 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 
 
 
-<div id="ending" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:black;z-index:999;">
-
-
-    <div style="display: flex;align-items: center;justify-content: center;height:100%;width:100%;">
-
-
-        <video width="320" height="240" id="video" style="max-width:100%">
-            <source src="static/ending.mp4" type="video/mp4">
-        </video>
-
-
-        <button onclick="document.location.reload()" style="text-align:center;display:none;cursor:pointer;text-decoration:none;border:5px white solid;padding:10px 20px;margin-top:20px;color:white;background:black;">VOLVER A EMPEZAR</button>
-        
-    </div>
-
-</div>
 
 <div id="modal" style="color:white;z-index:7;position:fixed;top:0;height:100%;background:black;left:50%;top:0;display:none">
     <div class="div_padding">
@@ -375,9 +356,6 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 <div id="control_right" style="opacity:0.5;z-index:3;position:fixed;right:0;top:0;height:100%;"></div>
 
 
-<!--
-<div id="over" style="position:fixed;z-index:2;left:0;top:0;width:100%;height:100%;"></div>
--->
 
 <div id="player" style="z-index:2;background-image:url('static/normal4.png');width:420px;background-repeat:no-repeat;background-position:left bottom;position:fixed;left:0;bottom:0;"></div>
 
@@ -394,7 +372,7 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 
 
 
-        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:15px;margin-top:-30px;position:fixed;color:yellow;width:250px;text-align:center;font-size:27px;">mis cosas</div>
+        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:-30px;position:fixed;color:yellow;text-align:center;font-size:27px;margin-left:-50px;width:200px;">mis cosas</div>
           
 
     </div>
@@ -408,7 +386,7 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 
 
 
-        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:15px;margin-top:-30px;position:fixed;color:yellow;width:250px;text-align:center;font-size:27px;">skills</div>
+        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:-30px;position:fixed;color:yellow;text-align:center;font-size:27px;margin-left:-50px;width:200px;">skills</div>
             
 
     </div>
@@ -421,7 +399,7 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 
 
 
-        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:15px;margin-top:-30px;position:fixed;color:yellow;width:250px;text-align:center;font-size:27px;">Experiencia</div>
+        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:-30px;position:fixed;color:yellow;text-align:center;font-size:27px;margin-left:-50px;width:200px;">Experiencia</div>
           
         
     </div>
@@ -435,7 +413,7 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 
 
 
-        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:15px;margin-top:-30px;position:fixed;color:yellow;width:250px;text-align:center;font-size:27px;">Herramientas</div>
+        <div class="text" style="font-weight:bold;text-shadow: 0px 2px 2px rgb(0 0 0);margin-top:-30px;position:fixed;color:yellow;text-align:center;font-size:27px;margin-left:-50px;width:200px;">Herramientas</div>
           
         
 
@@ -896,14 +874,6 @@ $('.obj').click(function(){
     }
     
 
-    
-    var img_shoot = 'shoot3.png';
-/*
-    if( screen_width < 1000 && screen_width < screen_height ){
-        img_shoot = 'shoot3.png';
-    }
-*/
-
 
 
 
@@ -953,7 +923,7 @@ $('.obj').click(function(){
     ,function(){
 
 
-        $('#player').css('opacity',0.8).css('left',0).css('bottom',0).css('background-image', "url('static/" + img_shoot + "')");
+        $('#player').css('opacity',0.8).css('left',0).css('bottom',0).css('background-image', "url('static/shoot3.png')");
 
         
 
