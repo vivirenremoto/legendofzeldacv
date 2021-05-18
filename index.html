@@ -410,6 +410,21 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
     </div>
 
 
+    <div class="obj" data-content="ending" style="text-align:center;width:100px;height:100px;border-radius:100px;position:absolute;left:500px;top:300px;">
+
+        
+        
+        <div class="blood" style="margin-top:-20px;display:none;background:url('static/blood4.gif');width:200px;height:200px;position:absolute;z-index:2;"></div>
+
+
+        <div class="zombie" style="background:url('static/zombie4.png');z-index: 1;height: 630px;margin-left: 10px;margin-top:10px;background-position: center top;background-size: 100%;position:absolute;background-repeat:no-repeat;"></div>
+
+
+        
+
+
+    </div>
+
 
 
 
@@ -1046,14 +1061,16 @@ function resizeScreen(){
     // movil portait ?
     if( screen_width < screen_height ){
         $('.obj:eq(0)').css('left', screen_width);
-        $('.obj:eq(1)').css('left', screen_width*3);
-        $('.obj:eq(2)').css('left', screen_width*5);
-        $('.obj:eq(3)').css('left', screen_width*7);
+        $('.obj:eq(1)').css('left', screen_width*2.5);
+        $('.obj:eq(2)').css('left', screen_width*3.5);
+        $('.obj:eq(3)').css('left', screen_width*4.5);
+        $('.obj:eq(4)').css('left', screen_width*5.5);
     }else{
         $('.obj:eq(0)').css('left', screen_width_half);
-        $('.obj:eq(1)').css('left', screen_width_half+(screen_width_half*1));
-        $('.obj:eq(2)').css('left', screen_width_half+(screen_width_half*2));
-        $('.obj:eq(3)').css('left', screen_width_half+(screen_width_half*3));
+        $('.obj:eq(1)').css('left', screen_width_half+(screen_width_half*0.9));
+        $('.obj:eq(2)').css('left', screen_width_half+(screen_width_half*1.8));
+        $('.obj:eq(3)').css('left', screen_width_half+(screen_width_half*2.7));
+        $('.obj:eq(4)').css('left', screen_width_half+(screen_width_half*3.5));
     }
 
 
@@ -1109,7 +1126,7 @@ function randomZombies(){
 
 
         var start_x = quarter_rand * quarter_zone;
-        var end_x = (start_x + quarter_zone) - third_diff;
+        var end_x = start_x + quarter_zone;
 
         var pos_x =  randomNumber(start_x, end_x);
 
