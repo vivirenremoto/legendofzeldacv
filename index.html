@@ -16,7 +16,6 @@
     <link rel="prefetch" href="static/zombie4.png" />
     <link rel="prefetch" href="static/normal4.png" />
     <link rel="prefetch" href="static/shoot3.png" />
-    <link rel="prefetch" href="static/mp3/wind.mp3" />
     <link rel="prefetch" href="static/mp3/shoot3.mp3" />
     <link rel="prefetch" href="static/mp3/navi.mp3" />
     <link rel="prefetch" href="static/mp3/walk4.mp3" />
@@ -109,13 +108,9 @@ li{margin-bottom:10px;}
 
 #modal a:hover{color:yellow;}
 
-.obj{z-index:1;/*border:1px black solid;*/}
+.obj{z-index:1;}
 
-/*
-.obj:hover .zombie{
-    filter: drop-shadow(2px 4px 8px red);
-}
-*/
+
 
  #close:hover{
     -webkit-box-shadow: 0 0 35px cyan;
@@ -124,7 +119,7 @@ li{margin-bottom:10px;}
 }
 
 
-body, #modal, #ending{
+body, #modal{
     cursor: url(static/cursor2.png) , default!important;
 }
 
@@ -147,7 +142,6 @@ a{cursor:pointer;}
     background: white;
     position: fixed;
     left: 50%;
-    /*margin-left: -70px;*/
     text-align: center;
     font-family: Arial;
     z-index: 6;
@@ -448,20 +442,12 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
     <source src="static/mp3/shoot3.mp3" type="audio/mp3">
 </audio>
 
-<audio id="sound_raven">
-    <source src="static/mp3/raven2.mp3" type="audio/mp3">
-</audio>
-
 <audio id="sound_walk" loop>
     <source src="static/mp3/walk4.mp3" type="audio/mp3">
 </audio>
 
 <audio id="sound_select">
     <source src="static/mp3/select.mp3" type="audio/mp3">
-</audio>
-
-<audio id="sound_door">
-    <source src="static/mp3/door2.mp3" type="audio/mp3">
 </audio>
 
 <audio id="sound_navi">
@@ -532,32 +518,27 @@ setInterval(function () {
 
 
 
-//$('#sound_music3')[0].volume = 0.4;
-
 
 $('body').click(function(){
     if( !playing_music ){
         playing_music = true;
 
-        if( $('#ending:visible').length == 0 ){
-
-            //$('#sound_navi')[0].play();
 
 
-            if( is_game ){
+        if( is_game ){
 
-                $('#time').html('<span style="color:red;font-size:70px;">GO</span>');
+            $('#time').html('<span style="color:red;font-size:70px;">GO</span>');
 
-                setTimeout(function(){
-                    updateTime();
-                }, 1000);
+            setTimeout(function(){
+                updateTime();
+            }, 1000);
 
-                
-                $('#sound_music3')[0].play();
-            }else{
-                $('#sound_music')[0].play();
-            }
+            
+            $('#sound_music3')[0].play();
+        }else{
+            $('#sound_music')[0].play();
         }
+
     }
 });
 
@@ -621,7 +602,6 @@ function moveLeft(){
 
     if( !timer_walking ){
 
-        //clearInterval(timer_walking);
 
         playerWalk();
 
@@ -664,7 +644,6 @@ function moveRight(){
 
     if( !timer_walking ){
 
-        //clearInterval(timer_walking);
 
         playerWalk();
         
@@ -758,8 +737,7 @@ function closeModal(){
             marginLeft:screen_height_half
         }, 1000, function(){
             
-            //$('#sound_zombie')[0].play();
-            
+        
             $('#modal').hide();
         });
 
@@ -796,12 +774,6 @@ function closeModal(){
 
 
 
-    /*
-    $('.obj').find('svg').stop().animate({
-        width: 70,
-        height: 70,
-    }, 200);
-    */
 
     $('.obj').find('.text').stop().animate({
         fontSize: 27,
@@ -814,8 +786,6 @@ function closeModal(){
 
 
 
-    //$('.obj').css('width', 100).css('height', 100).css('margin-top', 0).css('margin-left', 0).fadeIn('slow');
-    //$('.obj').find('.text').css('font-size', 27).css('width',200);
 }
 
 $("#close").click(function(){
@@ -854,19 +824,7 @@ $('.obj').click(function(){
     current_obj = $(this);
 
 
-    if( $(this).data('content') == 'ending' && !is_game ){
-        $('#sound_music')[0].pause();
-        //$('#sound_zombie')[0].pause();
-        $('#ending').show();
-        $('#video')[0].play();
 
-        setTimeout(function(){
-            $('#video').fadeOut('fast', function(){
-                $('#ending button').fadeIn('slow');
-            });
-        }, 1000*16);
-        return;
-    }
     
 
 
@@ -910,9 +868,6 @@ $('.obj').click(function(){
     {
         bottom: top_diff,
         left: -50,
-        //width:600,
-        //height:671,
-        //left: -100,
     },
     100    
     ,function(){
@@ -937,8 +892,6 @@ $('.obj').click(function(){
             if( !is_game ){
                     $('#sound_navi')[0].play();
             }
-
-            //$('.obj').fadeOut('fast', function(){
 
             
             $(current_obj).find('.blood').show();
@@ -1008,30 +961,14 @@ $('.obj').click(function(){
                 });
 
 
-            //});
-
-            
-
 
 
             setTimeout(function(){
 
 
-                /*
-                $('#player').css('bottom', top_diff).css('background-image', "url('static/normal2.png')");
-
-
-                $('#bg').stop().animate({
-                    'background-size': '100%'
-                }, 100);
-                */
-
                 $('#player').stop().animate(
                 {
                     bottom: 0,
-                    //width: 420,
-                    //height: 494,
-                    //left:0
                 },
                 100    
                 ,function(){
@@ -1041,10 +978,6 @@ $('.obj').click(function(){
                     
 
 
-
-                    //is_shooting = false;
-
-        
 
                 });
 
