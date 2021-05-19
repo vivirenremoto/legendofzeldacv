@@ -1173,7 +1173,7 @@ function randomZombies(){
         }else{
             var quarter_end = 14;
             var quarter_rand = randomNumber(2, quarter_end);
-            
+            d
         }
 
 
@@ -1326,8 +1326,9 @@ if( is_game ){
 
     $('.chainsaw').css('background-image',"url('static/zombie4.png')").removeClass('chainsaw');
 
-    //$('.obj').hide();
-    //randomZombies();
+    $('.obj').hide();
+    $('.obj:first').show();
+    randomZombies();
 
 
     
