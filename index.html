@@ -496,7 +496,6 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 
 
 <script>
-var timer_mouseup;
 var time_left = 60;
 var timer_time;
 var best_score = 100;
@@ -739,32 +738,23 @@ if( screen_width > 1000 ){
 }else{
 
     $('#control_left').on("vmousedown",function(){
-        clearTimeout(timer_mouseup);
-        timer_mouseup = setTimeout(function(){
-            clearInterval(timer_scroll);
-            moveStop();
-        }, 1000);
-
-        moveLeft();
+        if( !timer_walking ){
+            moveLeft();
+        }
+        
     });
 
     $('#control_left').on("vmouseup",function(){
-        clearTimeout(timer_mouseup);
         moveStop();
     });
 
     $('#control_right').on("vmousedown",function(){
-        clearTimeout(timer_mouseup);
-        timer_mouseup = setTimeout(function(){
-            clearInterval(timer_scroll);
-            moveStop();
-        }, 1000);
-
-        moveRight();
+        if( !timer_walking ){
+            moveRight();
+        }
     });
 
     $('#control_right').on("vmouseup",function(){
-        clearTimeout(timer_mouseup);
         moveStop();
     });
 
