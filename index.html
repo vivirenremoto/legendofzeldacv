@@ -777,8 +777,9 @@ function closeModal(){
             $('#modal').hide();
         });
 
-        $('#bg').stop().css('background-position', 'inherit').animate({
-            'background-size': '100%'
+        $('#bg').stop().animate({
+            'background-size': '100%',
+            'background-position': 0
         }, delay_shoot);
 
 
