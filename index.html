@@ -741,7 +741,6 @@ if( screen_width > 1000 ){
     $('#control_left').on("vmousedown",function(){
         clearTimeout(timer_mouseup);
         timer_mouseup = setTimeout(function(){
-            alert('aaa');
             clearInterval(timer_scroll);
             moveStop();
         }, 1000);
@@ -757,7 +756,6 @@ if( screen_width > 1000 ){
     $('#control_right').on("vmousedown",function(){
         clearTimeout(timer_mouseup);
         timer_mouseup = setTimeout(function(){
-            alert('aaa');
             clearInterval(timer_scroll);
             moveStop();
         }, 1000);
