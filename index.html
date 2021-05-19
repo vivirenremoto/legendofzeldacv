@@ -17,7 +17,7 @@
     <link rel="prefetch" href="static/zombie4.png" />
     <link rel="prefetch" href="static/normal4.png" />
     <link rel="prefetch" href="static/shoot3.png" />
-    <link rel="prefetch" href="static/mp3/shoot3.mp3" />
+    <link rel="prefetch" href="static/mp3/shoot4.mp3" />
     <link rel="prefetch" href="static/mp3/navi.mp3" />
     <link rel="prefetch" href="static/mp3/walk4.mp3" />
     <link rel="prefetch" href="static/mp3/select2.mp3" />
@@ -76,6 +76,7 @@ body {
     touch-action: pan-x pan-y;
 }
 
+
 a{color:white;text-decoration:none;}
 
 a:hover{text-decoration:underline;}
@@ -87,12 +88,12 @@ h2{color:cyan;font-size:40px;float:left;margin-top:-7px;font-weight:normal;
     padding-top:45px;
     padding-bottom:20px;
     padding-right:0;
-    padding-left:85px;
+    padding-left:95px;
     background-size: auto 100%;
     margin-top: -35px;
     background-repeat: no-repeat;
     width: 160px;
-    background-position: -68px 25px;
+    background-position: -53px 25px;
 
 
 
@@ -111,13 +112,8 @@ li{margin-bottom:10px;}
 
 .obj{z-index:1;}
 
-
-
- #close:hover{
-    -webkit-box-shadow: 0 0 35px cyan;
-    -moz-box-shadow: 0 0 35px cyan;
-    box-shadow: 0 0 35px cyan;
-}
+#close{background:white;border:5px white solid;}
+#close:hover{background:yellow;border:5px yellow solid;}
 
 
 body, #modal{
@@ -242,7 +238,7 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 <div id="modal" style="color:white;z-index:7;position:fixed;top:0;height:100%;background:black;left:50%;top:0;display:none">
     <div class="div_padding">
 
-        <button id="close" style="cursor:pointer;margin-top:-10px;float:right;background:white;border-radius:100px;width:55px;padding:5px 0;border:5px white solid;position:relative;z-index:1;">
+        <button id="close" style="cursor:pointer;margin-top:-10px;float:right;border-radius:100px;width:55px;padding:5px 0;position:relative;z-index:1;">
         
             <svg style="margin-top:5px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
@@ -457,7 +453,7 @@ style="cursor:pointer;font-size:30px;position:fixed;right:10px;top:10px;z-index:
 </audio>
 
 <audio id="sound_shoot">
-    <source src="static/mp3/shoot3.mp3" type="audio/mp3">
+    <source src="static/mp3/shoot4.mp3" type="audio/mp3">
 </audio>
 
 <audio id="sound_walk" loop>
@@ -710,6 +706,8 @@ if( screen_width > 1000 ){
             moveLeft();
         } else if (e.keyCode == 39 || e.keyCode == 68) {
             moveRight();
+        } else if (e.keyCode == 27) {
+            closeModal();
         }
     });
 
@@ -759,7 +757,7 @@ function closeModal(){
             $('#modal').hide();
         });
 
-        $('#bg').stop().animate({
+        $('#bg').stop().css('background-position', 'inherit').animate({
             'background-size': '100%'
         }, delay_shoot);
 
@@ -768,6 +766,8 @@ function closeModal(){
             width: zombie_width_min,
             height: 630
         }, delay_shoot);
+
+        $('.obj').css('width', zombie_width_min);
     }
 
 
@@ -844,13 +844,15 @@ $('.obj').click(function(){
 
 
     
+    $('#sound_shoot')[0].currentTime = 0;
+    $('#sound_shoot')[0].play();
 
 
 
 
 
 
-    $('.obj').stop().css('width', 100).css('height', 100).css('margin-top', 0).css('margin-left', 0);
+    $('.obj').stop().css('width', zombie_width_max).css('height', 100).css('margin-top', 0).css('margin-left', 0);
 
 
 
@@ -903,8 +905,6 @@ $('.obj').click(function(){
                 $('#bg').css('opacity', 1);
             }, 100);
 
-            $('#sound_shoot')[0].currentTime = 0;
-            $('#sound_shoot')[0].play();
 
 
             if( !is_game ){
@@ -1267,7 +1267,6 @@ if( is_game ){
     
     delay_shoot = 100;
 
-    //$('.obj:eq(4)').remove();
 
     $('.chainsaw').css('background-image',"url('static/zombie4.png')").removeClass('chainsaw');
 
@@ -1278,6 +1277,7 @@ if( is_game ){
 
 }else{
     $('#btn_game').fadeIn('slow');
+    $('.obj:eq(4)').remove();
 }
 
 
