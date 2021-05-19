@@ -1154,9 +1154,11 @@ function randomZombies(){
 
         
         if( screen_width > 1000 ){
-            var quarter_rand = randomNumber(2,18);
+            var quarter_end = 18;
+            var quarter_rand = randomNumber(2, quarter_end);
         }else{
-            var quarter_rand = randomNumber(2,14);
+            var quarter_end = 14;
+            var quarter_rand = randomNumber(2, quarter_end);
             
         }
 
@@ -1166,7 +1168,7 @@ function randomZombies(){
         var start_x = quarter_rand * quarter_zone;
         var end_x = (start_x + quarter_zone);
 
-        if( end_x > (third_diff*2) ){
+        if( quarter_rand == quarter_end ){
             end_x -= third_diff;
         }
         
