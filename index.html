@@ -742,12 +742,13 @@ if( screen_width > 1000 ){
         clearTimeout(timer_mouseup);
         timer_mouseup = setTimeout(function(){
             moveStop();
-        }, 5000);
+        }, 3000);
 
         moveLeft();
     });
 
     $('#control_left').on("vmouseup",function(){
+        clearTimeout(timer_mouseup);
         moveStop();
     });
 
@@ -755,12 +756,13 @@ if( screen_width > 1000 ){
         clearTimeout(timer_mouseup);
         timer_mouseup = setTimeout(function(){
             moveStop();
-        }, 5000);
-        
+        }, 3000);
+
         moveRight();
     });
 
     $('#control_right').on("vmouseup",function(){
+        clearTimeout(timer_mouseup);
         moveStop();
     });
 
